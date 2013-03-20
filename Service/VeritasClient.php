@@ -31,33 +31,8 @@ class VeritasClient
     }
 
     /**
-     * @param int $id
-     * @return \Ice\VeritasClientBundle\Entity\Order
-     */
-    public function findOrderById($id){
-        return $this->getRestClient()->getCommand('GetOrder', array('id'=>$id))->execute();
-    }
-
-    /**
-     * @param int $id
-     * @return \Ice\VeritasClientBundle\Entity\Order[]|ArrayCollection
-     */
-    public function findAllOrders(){
-        return $this->getRestClient()->getCommand('GetOrders')->execute();
-    }
-
-
-    /**
-     * @param int $id
-     * @return \Ice\VeritasClientBundle\Entity\SuborderGroup
-     */
-    public function findSuborderGroupById($id){
-        return $this->getRestClient()->getCommand('GetSuborderGroup', array('id'=>$id))->execute();
-    }
-
-    /**
      * @param string $id
-     * @return \Ice\CtmsClientBundle\Response\Course
+     * @return \Ice\VeritasClientBundle\Entity\Course
      */
     public function getCourse($id)
     {

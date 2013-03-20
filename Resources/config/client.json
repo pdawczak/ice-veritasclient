@@ -1,0 +1,19 @@
+{
+    "name": "Veritas client",
+    "description": "Veritas manages course information",
+    "operations": {
+        "GetCourse": {
+            "httpMethod": "GET",
+            "uri": "courses/{id}",
+            "summary": "Get a course",
+            "responseClass": "Ice\\VeritasBundle\\Entity\\Course",
+            "parameters": {
+                "id": {
+                    "location": "uri",
+                    "type": "integer",
+                    "required": true
+                }
+            }
+        }
+    }
+}

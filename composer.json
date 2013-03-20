@@ -1,0 +1,25 @@
+{
+    "name": "ice/veritasclient-bundle",
+    "type": "symfony-bundle",
+    "description": "Client for the ICE Veritas API",
+    "licence": "MIT",
+    "authors": [
+        {
+            "name": "Rob Hogan",
+            "email": "rob.hogan@admin.cam.ac.uk"
+        },
+        {
+            "name": "Stuart Chapman",
+            "email": "stuart.chapman@admin.cam.ac.uk"
+        }
+    ],
+    "require": {
+        "misd/guzzle-bundle": "@stable"
+    },
+    "autoload": {
+        "psr-0": {
+            "Ice\\VeritasClientBundle": ""
+        }
+    },
+    "target-dir": "Ice/VeritasClientBundle"
+}

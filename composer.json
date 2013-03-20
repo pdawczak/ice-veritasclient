@@ -15,7 +15,7 @@
     ],
     "require": {
         "misd/guzzle-bundle": "@stable",
-        "jms/serializer-bundle": "0.11.x@dev"
+        "jms/serializer-bundle": "0.12.*@dev"
     },
     "autoload": {
         "psr-0": {

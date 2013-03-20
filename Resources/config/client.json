@@ -6,7 +6,7 @@
             "httpMethod": "GET",
             "uri": "courses/{id}",
             "summary": "Get a course",
-            "responseClass": "Ice\\VeritasBundle\\Entity\\Course",
+            "responseClass": "Ice\\VeritasClientBundle\\Entity\\Course",
             "parameters": {
                 "id": {
                     "location": "uri",

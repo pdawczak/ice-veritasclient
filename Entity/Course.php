@@ -2,31 +2,37 @@
 
 namespace Ice\VeritasClientBundle\Entity;
 
-use JMS\Serializer\Annotation\SerializedName,
-    JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation as JMS;
 
 class Course
 {
     /**
      * @var integer
      *
-     * @Type("integer")
+     * @JMS\Type("integer")
      */
     private $id;
 
     /**
      * @var string
      *
-     * @Type("string")
+     * @JMS\Type("string")
      */
     private $title;
 
     /**
      * @var string
      *
-     * @Type("string")
+     * @JMS\Type("string")
      */
     private $code;
+
+    /**
+     * @var CourseRegistrationRequirement[]
+     *
+     * @JMS\Exclude
+     */
+    private $courseRegistrationRequirements = array();
 
     /**
      * @return int
@@ -50,5 +56,27 @@ class Course
     public function getCode()
     {
         return $this->code;
+    }
+
+    /**
+     * @return CourseRegistrationRequirement[]
+     */
+    public function getCourseRegistrationRequirements()
+    {
+        if(!$this->courseRegistrationRequirements){
+            $this->addCourseRegistrationRequirement('personalDetails');
+        }
+        return $this->courseRegistrationRequirements;
+    }
+
+    /**
+     * @param string $code
+     * @param int $version
+     */
+    private function addCourseRegistrationRequirement($code, $version = 1){
+        $newRequirement = new CourseRegistrationRequirement();
+        $newRequirement->setCode($code);
+        $newRequirement->setVersion($version);
+        $this->courseRegistrationRequirements[] = $newRequirement;
     }
 }

@@ -8,11 +8,15 @@ class CourseRegistrationRequirement
 {
     /**
      * @var string
+     *
+     * @JMS\Type("string")
      */
     private $code;
 
     /**
      * @var int
+     *
+     * @JMS\Type("integer")
      */
     private $version;
 

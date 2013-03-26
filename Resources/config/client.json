@@ -14,6 +14,19 @@
                     "required": true
                 }
             }
+        },
+        "SearchForCourse": {
+            "httpMethod": "GET",
+            "uri": "courses/search/{term}",
+            "summary": "Search for courses",
+            "responseClass": "ArrayCollection<Ice\\VeritasClientBundle\\Entity\\Course>",
+            "parameters": {
+                "term": {
+                    "location": "uri",
+                    "type": "string",
+                    "required": true
+                }
+            }
         }
     }
 }

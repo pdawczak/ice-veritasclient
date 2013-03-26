@@ -4,6 +4,7 @@ namespace Ice\VeritasClientBundle\Service;
 
 use Guzzle\Service\Client;
 use Doctrine\Common\Collections\ArrayCollection;
+use Ice\VeritasClientBundle\Entity\Course;
 
 class VeritasClient
 {
@@ -41,5 +42,17 @@ class VeritasClient
         ))->execute();
 
         return $course;
+    }
+
+    /**
+     * @param string $term Search term to match against
+     *
+     * @return Course[]
+     */
+    public function searchForCourse($term)
+    {
+        return $this->getRestClient()->getCommand('SearchForCourse', array(
+            'term' => $term,
+        ))->execute();
     }
 }

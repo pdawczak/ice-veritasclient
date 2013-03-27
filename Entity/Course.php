@@ -36,6 +36,14 @@ class Course
     private $courseRegistrationRequirements;
 
     /**
+     * @var PaymentPlan[]
+     *
+     * @JMS\Type("ArrayCollection<Ice\VeritasClientBundle\Entity\PaymentPlan>")
+     * @JMS\SerializedName("paymentPlans")
+     */
+    private $paymentPlans;
+
+    /**
      * @return int
      */
     public function getId()
@@ -65,5 +73,13 @@ class Course
     public function getCourseRegistrationRequirements()
     {
         return $this->courseRegistrationRequirements;
+    }
+
+    /**
+     * @return PaymentPlan[]
+     */
+    public function getPaymentPlans()
+    {
+        return $this->paymentPlans;
     }
 }

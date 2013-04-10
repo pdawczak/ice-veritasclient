@@ -44,6 +44,24 @@ class Course
     private $paymentPlans;
 
     /**
+     * Tuition fee in pence
+     *
+     * @var int
+     * @JMS\Type("integer")
+     * @JMS\SerializedName("tuitionFee")
+     */
+    private $tuitionFee;
+
+    /**
+     * Cost centre as a 4 character string
+     *
+     * @var string
+     * @JMS\Type("string")
+     * @JMS\SerializedName("costCentre")
+     */
+    private $costCentre;
+
+    /**
      * @return int
      */
     public function getId()
@@ -81,5 +99,41 @@ class Course
     public function getPaymentPlans()
     {
         return $this->paymentPlans;
+    }
+
+    /**
+     * @param int $tuitionFee
+     * @return Course
+     */
+    public function setTuitionFee($tuitionFee)
+    {
+        $this->tuitionFee = $tuitionFee;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTuitionFee()
+    {
+        return $this->tuitionFee;
+    }
+
+    /**
+     * @param string $costCentre
+     * @return Course
+     */
+    public function setCostCentre($costCentre)
+    {
+        $this->costCentre = $costCentre;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCostCentre()
+    {
+        return $this->costCentre;
     }
 }

@@ -62,6 +62,44 @@ class Course
     private $costCentre;
 
     /**
+     * Accommodation options. Currently hardcoded - obviously!
+     *
+     * Will be replaced with something that includes all line items.
+     *
+     * @var array
+     *
+     * @JMS\Type("array")
+     * @JMS\Expose()
+     * @JMS\SerializedName("accommodationOptions")
+     */
+    private $accommodationOptions = array(
+        array(
+            'title' => 'Accommodation at Madingley hall - single',
+            'cost' => 11000,
+            'financeCode' => 'U.EA.ABCD.GAAA.EFGH.0000',
+            'capacity' => 40,
+            'booked' => 20,
+            'shortCode' => 'accommodation-single',
+        ),
+        array(
+            'title' => 'Accommodation at Madingley hall - double',
+            'cost' => 9000,
+            'financeCode' => 'U.EA.ABCD.GAAA.EFGH.0000',
+            'capacity' => 40,
+            'booked' => 20,
+            'shortCode' => 'accommodation-double',
+        ),
+        array(
+            'title' => 'Accommodation at Madingley hall - twin',
+            'cost' => 9000,
+            'financeCode' => 'U.EA.ABCD.GAAA.EFGH.0000',
+            'capacity' => 40,
+            'booked' => 20,
+            'shortCode' => 'accommodation-twin',
+        ),
+    );
+
+    /**
      * @return int
      */
     public function getId()
@@ -135,5 +173,10 @@ class Course
     public function getCostCentre()
     {
         return $this->costCentre;
+    }
+
+    public function getAccommodationOptions()
+    {
+        return $this->accommodationOptions;
     }
 }

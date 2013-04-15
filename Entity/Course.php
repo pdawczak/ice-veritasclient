@@ -62,6 +62,20 @@ class Course
     private $costCentre;
 
     /**
+     * @var \DateTime
+     * @JMS\Type("DateTime")
+     * @JMS\SerializedName("startDate")
+     */
+    private $startDate;
+
+    /**
+     * @var \DateTime
+     * @JMS\Type("DateTime")
+     * @JMS\SerializedName("endDate")
+     */
+    private $endDate;
+
+    /**
      * Accommodation options. Currently hardcoded - obviously!
      *
      * Will be replaced with something that includes all line items.
@@ -178,5 +192,41 @@ class Course
     public function getAccommodationOptions()
     {
         return $this->accommodationOptions;
+    }
+
+    /**
+     * @param \DateTime $endDate
+     * @return Course
+     */
+    public function setEndDate($endDate)
+    {
+        $this->endDate = $endDate;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getEndDate()
+    {
+        return $this->endDate;
+    }
+
+    /**
+     * @param \DateTime $startDate
+     * @return Course
+     */
+    public function setStartDate($startDate)
+    {
+        $this->startDate = $startDate;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getStartDate()
+    {
+        return $this->startDate;
     }
 }

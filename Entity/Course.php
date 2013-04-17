@@ -159,7 +159,7 @@ class Course
      */
     public function setTuitionFee($tuitionFee)
     {
-        $this->tuitionFee = $tuitionFee;
+        $this->tuitionFee = $tuitionFee/100;
         return $this;
     }
 
@@ -168,7 +168,7 @@ class Course
      */
     public function getTuitionFee()
     {
-        return $this->tuitionFee;
+        return $this->tuitionFee*100;
     }
 
     /**

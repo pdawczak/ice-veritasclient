@@ -2,6 +2,7 @@
 
 namespace Ice\VeritasClientBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use JMS\Serializer\Annotation as JMS;
 
 class Course
@@ -76,42 +77,13 @@ class Course
     private $endDate;
 
     /**
-     * Accommodation options. Currently hardcoded - obviously!
+     * @var BookingItem[]|ArrayCollection
      *
-     * Will be replaced with something that includes all line items.
-     *
-     * @var array
-     *
-     * @JMS\Type("array")
-     * @JMS\Expose()
-     * @JMS\SerializedName("accommodationOptions")
+     * @JMS\Expose
+     * @JMS\SerializedName("bookingItems")
+     * @JMS\Type("ArrayCollection<Ice\VeritasClientBundle\Entity\BookingItem>")
      */
-    private $accommodationOptions = array(
-        array(
-            'title' => 'Accommodation at Madingley hall - single',
-            'cost' => 11000,
-            'financeCode' => 'U.EA.ABCD.GAAA.EFGH.0000',
-            'capacity' => 40,
-            'booked' => 20,
-            'shortCode' => 'accommodation-single',
-        ),
-        array(
-            'title' => 'Accommodation at Madingley hall - double',
-            'cost' => 9000,
-            'financeCode' => 'U.EA.ABCD.GAAA.EFGH.0000',
-            'capacity' => 40,
-            'booked' => 20,
-            'shortCode' => 'accommodation-double',
-        ),
-        array(
-            'title' => 'Accommodation at Madingley hall - twin',
-            'cost' => 9000,
-            'financeCode' => 'U.EA.ABCD.GAAA.EFGH.0000',
-            'capacity' => 40,
-            'booked' => 20,
-            'shortCode' => 'accommodation-twin',
-        ),
-    );
+    private $bookingItems;
 
     /**
      * @return int
@@ -228,5 +200,15 @@ class Course
     public function getStartDate()
     {
         return $this->startDate;
+    }
+
+    /**
+     * Collection of items that are available to be booked for the course
+     *
+     * @return ArrayCollection|BookingItem[]
+     */
+    public function getBookingItems()
+    {
+        return $this->bookingItems;
     }
 }

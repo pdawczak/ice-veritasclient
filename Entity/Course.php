@@ -86,6 +86,15 @@ class Course
     private $bookingItems;
 
     /**
+     * @var int
+     *
+     * @JMS\Expose
+     * @JMS\SerializedName("statusId")
+     * @JMS\Type("integer")
+     */
+    private $statusId;
+
+    /**
      * @return int
      */
     public function getId()
@@ -210,5 +219,13 @@ class Course
     public function getBookingItems()
     {
         return $this->bookingItems;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isCancelled()
+    {
+        return $this->statusId === 4;
     }
 }

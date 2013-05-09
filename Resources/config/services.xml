@@ -4,11 +4,6 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <parameters>
-        <parameter key="guzzle.client.class">Guzzle\Service\Client</parameter>
-        <parameter key="guzzle.service_description.class">Guzzle\Service\Description\ServiceDescription</parameter>
-    </parameters>
-
     <services>
         <service id="veritas_rest_client.service_description"
                  class="%guzzle.service_description.class%"
@@ -18,23 +13,33 @@
         </service>
 
         <service
-                id="veritas_rest_client"
-                class="Ice\VeritasClientBundle\Service\VeritasRestClient"
+                id="veritas_client.guzzle"
+                class="%guzzle.client.class%"
                 public="false">
             <tag name="guzzle.client"/>
             <argument>%ice_veritas_client.base_url%</argument>
             <call method="setDescription">
-                <argument type="service" id="veritas_rest_client.service_description"/>
+                <argument type="service" id="veritas_client.service_description"/>
             </call>
         </service>
 
         <service
+                id="veritas_client.service_description"
+                class="%guzzle.service_description.class%"
+                factory-class="%guzzle.service_description.class%"
+                factory-method="factory"
+                public="false"
+                >
+            <argument>%ice_veritas_client.service_description_path%</argument>
+        </service>
+
+        <service
                 id="veritas.client"
-                class="Ice\VeritasClientBundle\Service\VeritasClient"
-                public="true">
-            <call method="setRestClient">
-                <argument type="service" id="veritas_rest_client"/>
-            </call>
+                class="Ice\veritasClientBundle\Service\veritasClient">
+            <argument type="service" id="veritas_client.guzzle" />
+            <argument type="service" id="serializer"/>
+            <argument>%ice_veritas_client.username%</argument>
+            <argument>%ice_veritas_client.password%</argument>
         </service>
     </services>
 </container>

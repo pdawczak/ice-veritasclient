@@ -3,41 +3,51 @@
 namespace Ice\VeritasClientBundle\Service;
 
 use Guzzle\Service\Client;
-use Doctrine\Common\Collections\ArrayCollection;
 use Ice\VeritasClientBundle\Entity\Course;
+use JMS\Serializer\Serializer;
 
 class VeritasClient
 {
     /**
-     * @var VeritasRestClient
+     * @var Client
      */
-    private $restClient;
+    private $client;
 
     /**
-     * @param \Ice\VeritasClientBundle\Service\VeritasRestClient $restClient
-     * @return VeritasClient
+     * @var \JMS\Serializer\Serializer
      */
-    public function setRestClient($restClient)
-    {
-        $this->restClient = $restClient;
-        return $this;
-    }
+    private $serializer;
 
     /**
-     * @return \Ice\VeritasClientBundle\Service\VeritasRestClient
+     * @param Client     $client
+     * @param Serializer $serializer
+     * @param string     $username
+     * @param            $password
+     *
+     * @return \Ice\VeritasClientBundle\Service\VeritasClient
      */
-    public function getRestClient()
+    public function __construct(Client $client, Serializer $serializer, $username, $password)
     {
-        return $this->restClient;
+        $this->client = $client;
+        $this->client->setConfig(array(
+            'curl.options' => array(
+                'CURLOPT_USERPWD' => sprintf("%s:%s", $username, $password),
+            ),
+        ));
+        $this->serializer = $serializer;
+        $this->client->setDefaultHeaders(array(
+            'Accept' => 'application/json',
+        ));
     }
 
     /**
      * @param string $id
+     *
      * @return \Ice\VeritasClientBundle\Entity\Course
      */
     public function getCourse($id)
     {
-        $course = $this->getRestClient()->getCommand('GetCourse', array(
+        $course = $this->client->getCommand('GetCourse', array(
             'id' => $id,
         ))->execute();
 
@@ -51,7 +61,7 @@ class VeritasClient
      */
     public function searchForCourse($term)
     {
-        return $this->getRestClient()->getCommand('SearchForCourse', array(
+        return $this->client->getCommand('SearchForCourse', array(
             'term' => $term,
         ))->execute();
     }

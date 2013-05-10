@@ -2,7 +2,7 @@
     "name": "ice/veritasclient-bundle",
     "type": "symfony-bundle",
     "description": "Client for the ICE Veritas API",
-    "licence": "MIT",
+    "license": "MIT",
     "authors": [
         {
             "name": "Rob Hogan",

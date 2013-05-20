@@ -95,6 +95,15 @@ class Course
     private $statusId;
 
     /**
+     * @var boolean
+     *
+     * @JMS\Expose
+     * @JMS\SerializedName("hasOpenedForOnlineBooking")
+     * @JMS\Type("boolean")
+     */
+    private $hasOpenedForOnlineBooking;
+
+    /**
      * @return int
      */
     public function getId()
@@ -222,10 +231,37 @@ class Course
     }
 
     /**
+     * @param $code
+     *
+     * @return null|BookingItem
+     */
+    public function getBookingItemByCode($code)
+    {
+        $item = $this->getBookingItems()->filter(function (BookingItem $item) use ($code) {
+            return $item->getCode() === $code;
+        })->first();
+
+        if (!$item) {
+            return null;
+        }
+
+        return $item;
+    }
+
+    /**
      * @return bool
      */
     public function isCancelled()
     {
         return $this->statusId === 4;
     }
+
+    /**
+     * @return boolean
+     */
+    public function getHasOpenedForOnlineBooking()
+    {
+        return $this->hasOpenedForOnlineBooking;
+    }
+
 }

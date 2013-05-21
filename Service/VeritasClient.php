@@ -65,4 +65,28 @@ class VeritasClient
             'term' => $term,
         ))->execute();
     }
+
+    /**
+     * @param $id
+     *
+     * @return Course
+     */
+    public function setCourseCurrent($id)
+    {
+        return $this->client->getCommand('SetCourseCurrent', array(
+            'id' => $id,
+        ))->execute();
+    }
+
+    /**
+     * @param $id
+     *
+     * @return Course
+     */
+    public function setCourseFull($id)
+    {
+        return $this->client->getCommand('SetCourseFull', array(
+            'id' => $id,
+        ))->execute();
+    }
 }

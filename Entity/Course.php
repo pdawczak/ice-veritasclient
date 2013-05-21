@@ -104,6 +104,14 @@ class Course
     private $hasOpenedForOnlineBooking;
 
     /**
+     * @var integer
+     *
+     * @JMS\Expose
+     * @JMS\Type("integer")
+     */
+    private $capacity;
+
+    /**
      * @return int
      */
     public function getId()
@@ -262,6 +270,14 @@ class Course
     public function getHasOpenedForOnlineBooking()
     {
         return $this->hasOpenedForOnlineBooking;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCapacity()
+    {
+        return $this->capacity;
     }
 
 }

@@ -41,5 +41,11 @@
             <argument>%ice_veritas_client.username%</argument>
             <argument>%ice_veritas_client.password%</argument>
         </service>
+
+        <service id="veritas.minerva_academic_information.subscriber" class="Ice\VeritasClientBundle\EventListener\AcademicInformationSubscriber">
+            <argument type="service" id="veritas.client" />
+            <argument type="service" id="doctrine" />
+            <tag name="doctrine.event_subscriber" />
+        </service>
     </services>
 </container>

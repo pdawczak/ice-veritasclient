@@ -62,7 +62,7 @@ class AcademicInformationSubscriber implements EventSubscriber
     private function updateCourseStatusInVeritas(AcademicInformation $info)
     {
         $em = $this->doctrine->getManager();
-        $courseId = $info->getCourseId();
+        $courseId = (int)$info->getCourseId();
         $course = $this->veritas->getCourse($courseId);
         $capacity = $course->getCapacity();
         $tuitionCode = sprintf("TUITION-%d", $courseId);

@@ -44,7 +44,7 @@
 
         <service id="veritas.minerva_academic_information.subscriber" class="Ice\VeritasClientBundle\EventListener\AcademicInformationSubscriber">
             <argument type="service" id="veritas.client" />
-            <argument type="service" id="doctrine" />
+            <argument type="service" id="doctrine" on-invalid="ignore" />
             <tag name="doctrine.event_subscriber" />
         </service>
     </services>

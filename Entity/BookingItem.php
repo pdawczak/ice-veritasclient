@@ -103,6 +103,15 @@ class BookingItem
     private $availableInBackend;
 
     /**
+     * @var int
+     *
+     * @Expose
+     * @Type("int")
+     * @SerializedName("booked")
+     */
+    private $numberAllocated;
+
+    /**
      * @return boolean
      */
     public function getAvailableInBackend()
@@ -182,4 +191,22 @@ class BookingItem
         return $this->vatRate;
     }
 
+    /**
+     * The number of times this item has been allocated which count towards its capacity
+     *
+     * @return int
+     */
+    public function getNumberAllocated()
+    {
+        return $this->numberAllocated;
+    }
+
+    /**
+     * Return true if this item has capacity for at least one more allocation.
+     *
+     * @return bool
+     */
+    public function isInStock () {
+        return $this->getNumberAllocated() < $this->getCapacity();
+    }
 }

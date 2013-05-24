@@ -156,7 +156,7 @@ class Course
      */
     public function setTuitionFee($tuitionFee)
     {
-        $this->tuitionFee = $tuitionFee/100;
+        $this->tuitionFee = $tuitionFee / 100;
         return $this;
     }
 
@@ -165,7 +165,7 @@ class Course
      */
     public function getTuitionFee()
     {
-        return $this->tuitionFee*100;
+        return $this->tuitionFee * 100;
     }
 
     /**
@@ -275,9 +275,26 @@ class Course
 
     /**
      * @return string
+     * @deprecated Use capacity of tuition bookingItem instead
      */
     public function getShortDescription()
     {
         return $this->shortDescription;
     }
+
+    /**
+     * Return true iff all required booking items have booked < capacity
+     *
+     * @return bool
+     */
+    public function isInStock()
+    {
+        foreach ($this->getBookingItems() as $bookingItem) {
+            if ($bookingItem->getRequired() && (!$bookingItem->isInStock())) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 }

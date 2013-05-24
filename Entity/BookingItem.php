@@ -106,7 +106,7 @@ class BookingItem
      * @var int
      *
      * @Expose
-     * @Type("int")
+     * @Type("integer")
      * @SerializedName("booked")
      */
     private $numberAllocated;

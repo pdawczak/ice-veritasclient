@@ -274,8 +274,16 @@ class Course
     }
 
     /**
-     * @return string
+     * @return int
      * @deprecated Use capacity of tuition bookingItem instead
+     */
+    public function getCapacity()
+    {
+        return $this->capacity;
+    }
+
+    /**
+     * @return string
      */
     public function getShortDescription()
     {

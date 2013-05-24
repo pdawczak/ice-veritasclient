@@ -95,13 +95,12 @@ class Course
     private $statusId;
 
     /**
-     * @var boolean
-     *
+     * @var string
      * @JMS\Expose
-     * @JMS\SerializedName("hasOpenedForOnlineBooking")
-     * @JMS\Type("boolean")
+     * @JMS\SerializedName("shortDesc")
+     * @JMS\Type("string")
      */
-    private $hasOpenedForOnlineBooking;
+    private $shortDescription;
 
     /**
      * @var integer
@@ -265,19 +264,20 @@ class Course
     }
 
     /**
-     * @return boolean
+     * @param string $shortDescription
+     * @return Course
      */
-    public function getHasOpenedForOnlineBooking()
+    public function setShortDescription($shortDescription)
     {
-        return $this->hasOpenedForOnlineBooking;
+        $this->shortDescription = $shortDescription;
+        return $this;
     }
 
     /**
-     * @return int
+     * @return string
      */
-    public function getCapacity()
+    public function getShortDescription()
     {
-        return $this->capacity;
+        return $this->shortDescription;
     }
-
 }

@@ -111,6 +111,15 @@ class Course
     private $capacity;
 
     /**
+     * @var ArrayCollection|CamsisClass[]
+     *
+     * @JMS\Expose
+     * @JMS\Type("ArrayCollection<Ice\VeritasClientBundle\Entity\CamsisClass>")
+     * @JMS\SerializedName("camsisClasses")
+     */
+    private $camsisClasses;
+
+    /**
      * @return int
      */
     public function getId()
@@ -303,6 +312,14 @@ class Course
             }
         }
         return true;
+    }
+
+    /**
+     * @return \Doctrine\Common\Collections\ArrayCollection|\Ice\VeritasClientBundle\Entity\CamsisClass[]
+     */
+    public function getCamsisClasses()
+    {
+        return $this->camsisClasses;
     }
 
 }

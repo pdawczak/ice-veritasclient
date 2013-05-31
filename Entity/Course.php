@@ -107,6 +107,7 @@ class Course
      *
      * @JMS\Expose
      * @JMS\Type("integer")
+     * @JMS\SerializedName("maximumPlaces")
      */
     private $capacity;
 

@@ -2,8 +2,8 @@
 
 namespace Ice\VeritasClientBundle\EventListener;
 
-use Doctrine\Bundle\DoctrineBundle\Registry;
 use Doctrine\Common\EventSubscriber;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Event\OnFlushEventArgs;
 use Doctrine\ORM\UnitOfWork;
 use Ice\MinervaBundle\Entity\AcademicInformation;
@@ -19,9 +19,9 @@ class AcademicInformationSubscriber implements EventSubscriber
     private $veritas;
 
     /**
-     * @var Registry
+     * @var EntityManager
      */
-    private $doctrine;
+    private $em;
 
     public function getSubscribedEvents()
     {
@@ -30,16 +30,15 @@ class AcademicInformationSubscriber implements EventSubscriber
         );
     }
 
-    public function __construct(VeritasClient $veritas, Registry $doctrine)
+    public function __construct(VeritasClient $veritas)
     {
         $this->veritas = $veritas;
-        $this->doctrine = $doctrine;
     }
 
     public function onFlush(OnFlushEventArgs $args)
     {
-        $em = $args->getEntityManager();
-        $uow = $em->getUnitOfWork();
+        $this->em = $args->getEntityManager();
+        $uow = $this->em->getUnitOfWork();
 
         foreach ($uow->getScheduledEntityInsertions() as $entity) {
             if ($entity instanceof AcademicInformation) {
@@ -61,15 +60,14 @@ class AcademicInformationSubscriber implements EventSubscriber
      */
     private function updateCourseStatusInVeritas(AcademicInformation $info)
     {
-        $em = $this->doctrine->getManager();
         $courseId = (int)$info->getCourseId();
         $course = $this->veritas->getCourse($courseId);
         $capacity = $course->getCapacity();
         $tuitionCode = sprintf("TUITION-%d", $courseId);
         /** @var BookingItemSummary $summary */
-        $summary = $em->getRepository('IceMinervaBundle:BookingItem')->getSummary($tuitionCode);
+        $summary = $this->em->getRepository('IceMinervaBundle:BookingItem')->getSummary($tuitionCode);
 
-        if ($capacity >= $summary['allocated']) {
+        if ($capacity > $summary['allocated']) {
             $this->veritas->setCourseCurrent($courseId);
         } else {
             $this->veritas->setCourseFull($courseId);

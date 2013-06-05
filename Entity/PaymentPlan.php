@@ -14,9 +14,9 @@ class PaymentPlan
     private $code;
 
     /**
-     * @var int
+     * @var string
      *
-     * @JMS\Type("integer")
+     * @JMS\Type("string")
      */
     private $version;
 
@@ -35,7 +35,7 @@ class PaymentPlan
     private $backend;
 
     /**
-     * @param int $version
+     * @param string $version
      * @return PaymentPlan
      */
     public function setVersion($version)
@@ -45,7 +45,7 @@ class PaymentPlan
     }
 
     /**
-     * @return int
+     * @return string
      */
     public function getVersion()
     {

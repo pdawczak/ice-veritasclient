@@ -25,6 +25,14 @@ class Course
      * @var string
      *
      * @JMS\Type("string")
+     * @JMS\SerializedName("titleHtml")
+     */
+    private $titleHtml;
+
+    /**
+     * @var string
+     *
+     * @JMS\Type("string")
      */
     private $code;
 
@@ -321,6 +329,16 @@ class Course
     public function getCamsisClasses()
     {
         return $this->camsisClasses;
+    }
+
+    /**
+     * String with optional <em>, <i>, <b> and <strong> tags for formatting
+     *
+     * @return string
+     */
+    public function getTitleHtml()
+    {
+        return $this->titleHtml;
     }
 
 }

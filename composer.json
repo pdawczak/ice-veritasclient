@@ -3,6 +3,12 @@
     "type": "symfony-bundle",
     "description": "Client for the ICE Veritas API",
     "license": "MIT",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "http://satis.internal.admin.cam.ac.uk"
+        }
+    ],
     "authors": [
         {
             "name": "Rob Hogan",
@@ -15,7 +21,8 @@
     ],
     "require": {
         "misd/guzzle-bundle": "@stable",
-        "jms/serializer-bundle": ">=0.12.0@dev"
+        "jms/serializer-bundle": ">=0.12.0@dev",
+        "cambridgeuniversity/ice-common": "@dev"
     },
     "autoload": {
         "psr-0": {

@@ -103,6 +103,33 @@ class Course
     private $statusId;
 
     /**
+     * @var int
+     *
+     * @JMS\Expose
+     * @JMS\SerializedName("levelId")
+     * @JMS\Type("integer")
+     */
+    private $levelId;
+
+    /**
+     * @var Level
+     *
+     * @JMS\Expose
+     * @JMS\SerializedName("level")
+     * @JMS\Type("Ice\VeritasClientBundle\Entity\Level")
+     */
+    private $level;
+
+    /**
+     * @var int
+     *
+     * @JMS\Expose
+     * @JMS\SerializedName("programmeId")
+     * @JMS\Type("integer")
+     */
+    private $programmeId;
+
+    /**
      * @var string
      * @JMS\Expose
      * @JMS\SerializedName("shortDesc")
@@ -341,4 +368,11 @@ class Course
         return $this->titleHtml;
     }
 
+    /**
+     * @return \Ice\VeritasClientBundle\Entity\Level
+     */
+    public function getLevel()
+    {
+        return $this->level;
+    }
 }

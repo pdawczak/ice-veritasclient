@@ -3,10 +3,11 @@
 namespace Ice\VeritasClientBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Ice\Common\Api\V1\Entity\CourseLevel;
 use Ice\Common\Entity\CourseLevelInterface;
 use JMS\Serializer\Annotation as JMS;
 
-class Level implements CourseLevelInterface
+class Level implements CourseLevel\FullyReadable, CourseLevelInterface
 {
     /**
      * @var integer

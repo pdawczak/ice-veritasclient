@@ -68,7 +68,7 @@ class VeritasClient
 
     /**
      * @param $id
-     *
+     * @deprecated The Current status is deprecated as its meaning is confusing. This will be replaced
      * @return Course
      */
     public function setCourseCurrent($id)
@@ -80,7 +80,7 @@ class VeritasClient
 
     /**
      * @param $id
-     *
+     * @deprecated The Full status is deprecated - use the capacities of booking items instead
      * @return Course
      */
     public function setCourseFull($id)

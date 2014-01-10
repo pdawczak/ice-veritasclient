@@ -8,6 +8,17 @@ use JMS\Serializer\Annotation as JMS;
 class Course
 {
     /**
+     * NB: Status IDs are deprecated - please avoid using these. Favour primary source data instead - for example,
+     * a course is full iff any of its required booking items have reached capacity.
+     */
+    const STATUS_ID_CURRENT = 1;
+    const STATUS_ID_WAITING_LIST = 2;
+    const STATUS_ID_FULL = 3;
+    const STATUS_ID_CANCELLED = 4;
+    const STATUS_ID_ARCHIVE = 5;
+    const STATUS_ID_REGISTER_INTEREST = 7;
+
+    /**
      * @var integer
      *
      * @JMS\Type("integer")
@@ -145,6 +156,29 @@ class Course
      * @JMS\SerializedName("maximumPlaces")
      */
     private $capacity;
+
+    /**
+     * @var \DateTime
+     * @JMS\Type("DateTime")
+     * @JMS\SerializedName("cancelledDate")
+     */
+    private $cancelledDate;
+
+    /**
+     * @var string
+     * @JMS\Expose
+     * @JMS\SerializedName("cancelledReason")
+     * @JMS\Type("string")
+     */
+    private $cancellationReason;
+
+    /**
+     * @var string
+     * @JMS\Expose
+     * @JMS\SerializedName("cancelledBy")
+     * @JMS\Type("string")
+     */
+    private $cancelledBy;
 
     /**
      * @var ArrayCollection|CamsisClass[]
@@ -305,7 +339,61 @@ class Course
      */
     public function isCancelled()
     {
-        return $this->statusId === 4;
+        return $this->cancelledDate != null;
+    }
+
+    /**
+     * @param \DateTime $cancelledDate
+     * @return Course
+     */
+    public function setCancelledDate($cancelledDate)
+    {
+        $this->cancelledDate = $cancelledDate;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCancelledDate()
+    {
+        return $this->cancelledDate;
+    }
+
+    /**
+     * @param string $cancelledBy
+     * @return Course
+     */
+    public function setCancelledBy($cancelledBy)
+    {
+        $this->cancelledBy = $cancelledBy;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCancelledBy()
+    {
+        return $this->cancelledBy;
+    }
+
+    /**
+     * @param string $cancellationReason
+     * @return Course
+     */
+    public function setCancellationReason($cancellationReason)
+    {
+        $this->cancellationReason = $cancellationReason;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCancellationReason()
+    {
+        return $this->cancellationReason;
     }
 
     /**

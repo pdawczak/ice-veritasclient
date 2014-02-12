@@ -55,6 +55,20 @@ class VeritasClient
     }
 
     /**
+     * @param string $code
+     *
+     * @return \Ice\VeritasClientBundle\Entity\Course[]
+     */
+    public function getCoursesByCode($code)
+    {
+        $courses = $this->client->getCommand('GetCoursesByCode', array(
+            'code' => $code,
+        ))->execute();
+
+        return $courses;
+    }
+
+    /**
      * @param string $term Search term to match against
      *
      * @return Course[]

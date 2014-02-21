@@ -112,6 +112,15 @@ class BookingItem
     private $numberAllocated;
 
     /**
+     * @var BookingItemAttribute[]|ArrayCollection
+     *
+     * @Expose
+     * @Type("ArrayCollection<Ice\VeritasClientBundle\Entity\BookingItemAttribute>")
+     * @SerializedName("attributes")
+     */
+    private $attributes;
+
+    /**
      * @return boolean
      */
     public function getAvailableInBackend()
@@ -208,5 +217,37 @@ class BookingItem
      */
     public function isInStock () {
         return $this->getNumberAllocated() < $this->getCapacity();
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\ArrayCollection|\Ice\VeritasClientBundle\Entity\BookingItemAttribute[] $attributes
+     * @return BookingItem
+     */
+    public function setAttributes($attributes)
+    {
+        $this->attributes = $attributes;
+        return $this;
+    }
+
+    /**
+     * @return \Doctrine\Common\Collections\ArrayCollection|\Ice\VeritasClientBundle\Entity\BookingItemAttribute[]
+     */
+    public function getAttributes()
+    {
+        return $this->attributes;
+    }
+
+    /**
+     * Returns an BookingItemAttribute by name
+     * @param string $name
+     * @return BookingItemAttribute
+     */
+    public function getAttributeByName($name)
+    {
+        foreach ($this->attributes as $attribute) {
+            if ($attribute->getName() === $name) {
+                return $attribute;
+            }
+        }
     }
 }

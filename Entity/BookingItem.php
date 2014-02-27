@@ -238,9 +238,9 @@ class BookingItem
     }
 
     /**
-     * Returns an BookingItemAttribute by name
+     * Returns an BookingItemAttribute by name, or null if none is present
      * @param string $name
-     * @return BookingItemAttribute
+     * @return BookingItemAttribute|null
      */
     public function getAttributeByName($name)
     {
@@ -249,5 +249,6 @@ class BookingItem
                 return $attribute;
             }
         }
+        return null;
     }
 }

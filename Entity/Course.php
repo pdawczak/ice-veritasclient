@@ -192,9 +192,9 @@ class Course
     /**
      * @var CourseAttribute[]|ArrayCollection
      *
-     * @Expose
-     * @Type("ArrayCollection<Ice\VeritasClientBundle\Entity\Attribute>")
-     * @SerializedName("attributes")
+     * @JMS\Expose
+     * @JMS\Type("ArrayCollection<Ice\VeritasClientBundle\Entity\CourseAttribute>")
+     * @JMS\SerializedName("attributes")
      */
     private $attributes;
 

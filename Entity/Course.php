@@ -156,6 +156,15 @@ class Course
     private $camsisClasses;
 
     /**
+     * @var CourseAttribute[]|ArrayCollection
+     *
+     * @JMS\Expose
+     * @JMS\Type("ArrayCollection<Ice\VeritasClientBundle\Entity\CourseAttribute>")
+     * @JMS\SerializedName("attributes")
+     */
+    private $attributes;
+
+    /**
      * @return int
      */
     public function getId()
@@ -374,5 +383,28 @@ class Course
     public function getLevel()
     {
         return $this->level;
+    }
+
+    /**
+     * @return \Doctrine\Common\Collections\ArrayCollection|\Ice\VeritasClientBundle\Entity\CourseAttribute[]
+     */
+    public function getAttributes()
+    {
+        return $this->attributes;
+    }
+
+    /**
+     * Returns an CourseAttribute by name, or null if none is present
+     * @param string $name
+     * @return CourseAttribute|null
+     */
+    public function getAttributeByName($name)
+    {
+        foreach ($this->attributes as $attribute) {
+            if ($attribute->getName() === $name) {
+                return $attribute;
+            }
+        }
+        return null;
     }
 }

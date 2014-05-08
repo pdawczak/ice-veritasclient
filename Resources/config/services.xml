@@ -21,6 +21,13 @@
             <call method="setDescription">
                 <argument type="service" id="veritas_client.service_description"/>
             </call>
+            <call method="setConfig">
+                <argument type="collection">
+                    <argument key="curl.options" type="collection">
+                        <argument key="CURLOPT_USERPWD">%ice_veritas_client.userpwd%</argument>
+                    </argument>
+                </argument>
+            </call>
         </service>
 
         <service
@@ -38,8 +45,6 @@
                 class="Ice\VeritasClientBundle\Service\VeritasClient">
             <argument type="service" id="veritas_client.guzzle" />
             <argument type="service" id="serializer"/>
-            <argument>%ice_veritas_client.username%</argument>
-            <argument>%ice_veritas_client.password%</argument>
         </service>
     </services>
 </container>

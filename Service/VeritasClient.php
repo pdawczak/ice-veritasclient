@@ -21,19 +21,12 @@ class VeritasClient
     /**
      * @param Client     $client
      * @param Serializer $serializer
-     * @param string     $username
-     * @param            $password
      *
      * @return \Ice\VeritasClientBundle\Service\VeritasClient
      */
-    public function __construct(Client $client, Serializer $serializer, $username, $password)
+    public function __construct(Client $client, Serializer $serializer)
     {
         $this->client = $client;
-        $this->client->setConfig(array(
-            'curl.options' => array(
-                'CURLOPT_USERPWD' => sprintf("%s:%s", $username, $password),
-            ),
-        ));
         $this->serializer = $serializer;
         $this->client->setDefaultHeaders(array(
             'Accept' => 'application/json',

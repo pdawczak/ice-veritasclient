@@ -66,6 +66,77 @@
                     "required": true
                 }
             }
+        },
+        "CreateApplication": {
+            "httpMethod": "POST",
+            "uri": "applications",
+            "summary" : "Create a new application",
+            "data": {
+                "xmlRoot": {
+                    "name": "application"
+                }
+            },
+            "parameters": {
+                "course": {
+                    "location": "xml",
+                    "type": "integer",
+                    "required": true
+                },
+                "username": {
+                    "location": "xml",
+                    "type": "string",
+                    "required": false
+                },
+                "student_details": {
+                    "location": "xml",
+                    "required": false,
+                    "type": "object",
+                    "properties": {
+                        "title": { "type": "string" },
+                        "first_name": { "type": "string" },
+                        "last_name": { "type": "string" },
+                        "phone": { "type": "string" },
+                        "dob": { "type": "any", "format":"date" },
+                        "email": { "type": "string" },
+                        "line1": { "type": "string" },
+                        "line2": { "type": "string" },
+                        "line3": { "type": "string" },
+                        "town": { "type": "string" },
+                        "postcode": { "type": "string" },
+                        "county": { "type": "string" },
+                        "country": { "type": "string" },
+                        "marketing_opt_in": { "type": "integer" }
+                    }
+                },
+                "course_application": {
+                    "location": "xml",
+                    "required": false,
+                    "type": "object",
+                    "properties": {
+                        "statement": { "type": "string" },
+                        "highest_qualification": { "type": "string" },
+                        "student_loan": { "type": "string" },
+                        "supplementary_information": { "type": "string" },
+                        "english_first_language": { "type": "integer" },
+                        "english_language_number": { "type": "string" },
+                        "english_language_number_type": { "type": "string" }
+                    }
+                },
+                "bursary_application": {
+                    "location": "xml",
+                    "required": false,
+                    "type": "object",
+                    "properties": {
+                        "eligible": { "type": "integer" },
+                        "uk_school": { "type": "integer" },
+                        "school_name": { "type": "string" },
+                        "previous_ice_study": { "type": "integer" },
+                        "previous_uni_study": { "type": "integer" },
+                        "how_eligible": { "type": "string" }
+                    }
+                }
+
+            }
         }
     }
 }

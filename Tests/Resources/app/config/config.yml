@@ -1,0 +1,15 @@
+imports:
+    - { resource: parameters.yml }
+
+framework:
+    secret: test
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: "%kernel.debug%"
+    form:            true
+    templating:      { engines: ['twig'] }
+
+ice_veritas_client:
+    base_url: "%veritas_api_base_url%"
+    username: "%veritas_api_username%"
+    password: "%veritas_api_password%"

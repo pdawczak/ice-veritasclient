@@ -53,7 +53,15 @@ class Course
      * @JMS\Type("ArrayCollection<Ice\VeritasClientBundle\Entity\CourseRegistrationRequirement>")
      * @JMS\SerializedName("courseRegistrationRequirements")
      */
-    private $courseRegistrationRequirements;
+    private $courseRegistrationRequirements = array();
+
+    /**
+     * @var CourseApplicationRequirement[]
+     *
+     * @JMS\Type("ArrayCollection<Ice\VeritasClientBundle\Entity\CourseApplicationRequirement>")
+     * @JMS\SerializedName("courseApplicationRequirements")
+     */
+    private $courseApplicationRequirements = array();
 
     /**
      * @var PaymentPlan[]
@@ -228,6 +236,26 @@ class Course
     public function getCourseRegistrationRequirements()
     {
         return $this->courseRegistrationRequirements;
+    }
+
+    /**
+     * @return \Ice\VeritasClientBundle\Entity\CourseApplicationRequirement[]
+     */
+    public function getCourseApplicationRequirements()
+    {
+        $this->courseApplicationRequirements = [
+            (new CourseApplicationRequirement())
+                ->setReference('account')
+                ->setVersion('1.0.2')
+                ->setDescription('Personal details')
+                ->setOrder(1),
+            (new CourseApplicationRequirement())
+                ->setReference('address')
+                ->setVersion('1.0.2')
+                ->setDescription('Address')
+                ->setOrder(2)
+        ];
+        return $this->courseApplicationRequirements;
     }
 
     /**

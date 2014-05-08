@@ -41,6 +41,21 @@
         </service>
 
         <service
+                id="veritas_client.command_handler.application"
+                class="Ice\VeritasClientBundle\CommandHandler\GuzzleApplicationCommandHandler"
+                public="true"
+                >
+            <argument type="service" id="veritas_client.guzzle" />
+            <argument type="service" id="veritas_client.command_to_application_params_adapter" />
+        </service>
+
+        <service
+                id="veritas_client.command_to_application_params_adapter"
+                class="Ice\VeritasClientBundle\CommandHandler\CommandToApplicationArrayAdapter"
+                public="false"
+                />
+
+        <service
                 id="veritas.client"
                 class="Ice\VeritasClientBundle\Service\VeritasClient">
             <argument type="service" id="veritas_client.guzzle" />

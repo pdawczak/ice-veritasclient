@@ -24,9 +24,20 @@
         "jms/serializer-bundle": ">=0.12.0@dev",
         "cambridgeuniversity/ice-common": "dev-master"
     },
+    "require-dev": {
+        "symfony/symfony": "2.1.*",
+        "symfony/form": "2.1.*",
+        "symfony/assetic-bundle": "2.1.*",
+        "symfony/monolog-bundle": "2.1.*",
+        "symfony/validator": "2.1.*",
+        "symfony/console": "2.1.*",
+        "twig/extensions": "1.0.*@dev",
+        "liip/functional-test-bundle": "dev-master"
+    },
     "autoload": {
         "psr-0": {
-            "Ice\\VeritasClientBundle": ""
+            "Ice\\VeritasClientBundle": "",
+            "Ice\\VeritasClientTestBundle": "Tests/Resources/src"
         }
     },
     "target-dir": "Ice/VeritasClientBundle"

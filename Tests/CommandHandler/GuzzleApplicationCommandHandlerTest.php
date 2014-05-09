@@ -10,6 +10,7 @@ use Ice\VeritasClientBundle\CommandHandler\CommandToApplicationArrayAdapter;
 use Ice\VeritasClientBundle\CommandHandler\GuzzleApplicationCommandHandler;
 use Ice\VeritasClientBundle\Tests\CommandHandler\Scenarios\Scenario1;
 use Ice\VeritasClientBundle\Tests\CommandHandler\Scenarios\Scenario2;
+use Ice\VeritasClientBundle\Tests\CommandHandler\Scenarios\Scenario3;
 
 class GuzzleApplicationCommandHandlerTest extends GuzzleTestCase
 {
@@ -32,7 +33,8 @@ class GuzzleApplicationCommandHandlerTest extends GuzzleTestCase
         /** @var ApplicationScenarioInterface[] $scenarios */
         $scenarios = [
             new Scenario1(),
-            new Scenario2()
+            new Scenario2(),
+            new Scenario3()
         ];
 
         foreach ($scenarios as $scenario) {

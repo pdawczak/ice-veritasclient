@@ -204,4 +204,18 @@ interface NewApplicationCommandInterface
      * @return string
      */
     public function getIvyRoseHoodStatement();
+
+    /**
+     * This is the 1000 word statement currently used only by CPPA
+     *
+     * @return string
+     */
+    public function getPersonalStatement();
+
+    /**
+     * This is the 500 word answer to an essay question directly related to CPPA only
+     *
+     * @return string
+     */
+    public function getCppaEssay();
 }

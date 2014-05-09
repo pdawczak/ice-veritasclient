@@ -119,7 +119,9 @@
                         "supplementary_information": { "type": "string" },
                         "english_first_language": { "type": "integer" },
                         "english_language_number": { "type": "string" },
-                        "english_language_number_type": { "type": "string" }
+                        "english_language_number_type": { "type": "string" },
+                        "personal_statement": { "type": "string" },
+                        "cppa_essay": { "type": "string" }
                     }
                 },
                 "bursary_application": {

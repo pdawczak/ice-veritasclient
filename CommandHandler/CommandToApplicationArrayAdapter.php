@@ -70,7 +70,9 @@ class CommandToApplicationArrayAdapter implements CommandToApplicationArrayAdapt
             'student_loan' => $command->hasAppliedForStudentLoan() ?
                 ( $command->hasReceivedStudentLoanEntitlementLetter() ? 'r' : 'a' ) :
                 'n',
-            'supplementary_information' => $command->getSupplementaryInformationStatement()
+            'supplementary_information' => $command->getSupplementaryInformationStatement(),
+            'personal_statement' => $command->getPersonalStatement(),
+            'cppa_essay' => $command->getCppaEssay()
         ];
 
         if ($command->isEnglishFirstLanguage()) {

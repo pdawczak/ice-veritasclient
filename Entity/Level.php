@@ -3,10 +3,9 @@
 namespace Ice\VeritasClientBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Ice\Common\Api\V1\Entity\CourseLevel;
 use JMS\Serializer\Annotation as JMS;
 
-class Level implements CourseLevel\FullyReadable
+class Level
 {
     /**
      * @var integer

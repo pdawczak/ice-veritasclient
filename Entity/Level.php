@@ -7,6 +7,13 @@ use JMS\Serializer\Annotation as JMS;
 
 class Level
 {
+    const FHEQ4_ID = 1;
+    const FHEQ5_ID = 2;
+    const FHEQ6_ID = 3;
+    const LEVEL_M_ID = 4;
+    const MASTER_OF_STUDIES_ID = 5;
+    const NON_ACCREDITED_ID = 6;
+    
     /**
      * @var integer
      *

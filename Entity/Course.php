@@ -140,13 +140,13 @@ class Course
     private $level;
 
     /**
-     * @var int
+     * @var Level
      *
      * @JMS\Expose
-     * @JMS\SerializedName("programmeId")
-     * @JMS\Type("integer")
+     * @JMS\SerializedName("programme")
+     * @JMS\Type("Ice\VeritasClientBundle\Entity\Programme")
      */
-    private $programmeId;
+    private $programme;
 
     /**
      * @var string
@@ -522,5 +522,23 @@ class Course
             }
         }
         return null;
+    }
+
+    /**
+     * @param \Ice\VeritasClientBundle\Entity\Level $programme
+     * @return Course
+     */
+    public function setProgramme($programme)
+    {
+        $this->programme = $programme;
+        return $this;
+    }
+
+    /**
+     * @return \Ice\VeritasClientBundle\Entity\Level
+     */
+    public function getProgramme()
+    {
+        return $this->programme;
     }
 }

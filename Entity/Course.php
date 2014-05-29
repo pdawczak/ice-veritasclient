@@ -140,7 +140,7 @@ class Course
     private $level;
 
     /**
-     * @var Level
+     * @var Programme
      *
      * @JMS\Expose
      * @JMS\SerializedName("programme")
@@ -525,7 +525,7 @@ class Course
     }
 
     /**
-     * @param \Ice\VeritasClientBundle\Entity\Level $programme
+     * @param \Ice\VeritasClientBundle\Entity\Programme $programme
      * @return Course
      */
     public function setProgramme($programme)
@@ -535,7 +535,7 @@ class Course
     }
 
     /**
-     * @return \Ice\VeritasClientBundle\Entity\Level
+     * @return \Ice\VeritasClientBundle\Entity\Programme
      */
     public function getProgramme()
     {

@@ -20,7 +20,7 @@ class GuzzleApplicationCommandHandlerTest extends GuzzleTestCase
     protected function setUp()
     {
         $this->client = $this->getServiceBuilder()->get('veritas_client');
-        $this->client->setDescription((new ServiceDescriptionLoader())->load(__DIR__.'/../../Resources/config/client.json'));
+        $this->client->setDescription((new ServiceDescriptionLoader())->load(__DIR__.'/../../src/Ice/VeritasClientBundle/Resources/config/client.json'));
     }
 
     public function testNewApplication()

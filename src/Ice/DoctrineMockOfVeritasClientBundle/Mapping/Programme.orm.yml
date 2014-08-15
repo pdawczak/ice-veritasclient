@@ -1,0 +1,9 @@
+Ice\VeritasClientBundle\Entity\Programme:
+  type: entity
+  table: veritasclient_programme
+  id:
+    id:
+      type: integer
+  fields:
+    title:
+      type: string

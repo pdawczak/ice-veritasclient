@@ -1,0 +1,83 @@
+Ice\VeritasClientBundle\Entity\Course:
+  type: entity
+  table: veritasclient_course
+  id:
+    id:
+      type: integer
+  fields:
+    title:
+      type: string
+    titleHtml:
+      type: string
+      nullable: true
+    code:
+      type: string
+      nullable: true
+    tuitionFee:
+      type: integer
+      nullable: true
+    costCentre:
+      type: string
+      nullable: true
+    startDate:
+      type: datetime
+      nullable: true
+    endDate:
+      type: datetime
+      nullable: true
+    capacity:
+      type: integer
+      nullable: true
+    shortDescription:
+      type: text
+      nullable: true
+    cancellationReason:
+      type: string
+      nullable: true
+    cancelledBy:
+      type: string
+      nullable: true
+    cancelledDate:
+      type: datetime
+      nullable: true
+  manyToOne:
+    programme:
+      targetEntity: Programme
+    level:
+      targetEntity: Level
+  manyToMany:
+    paymentPlans:
+      targetEntity: PaymentPlan
+      joinTable:
+        name: veritasclient_course_paymentplans
+        inverseJoinColumns:
+          - { name: pp_code, referencedColumnName: code }
+          - { name: pp_version, referencedColumnName: version }
+        joinColumns:
+          - { name: id, referencedColumnName: id }
+    courseApplicationRequirements:
+      targetEntity: CourseApplicationRequirement
+      joinTable:
+        name: veritasclient_course_courseapplicationrequirement
+        inverseJoinColumns:
+          - { name: car_reference, referencedColumnName: reference }
+          - { name: car_version, referencedColumnName: version }
+        joinColumns:
+          - { name: id, referencedColumnName: id }
+    courseRegistrationRequirements:
+      targetEntity: CourseRegistrationRequirement
+      joinTable:
+        name: veritasclient_course_courseregistrationrequirement
+        inverseJoinColumns:
+          - { name: crr_code, referencedColumnName: code }
+          - { name: crr_version, referencedColumnName: version }
+        joinColumns:
+          - { name: id, referencedColumnName: id }
+    bookingItems:
+      targetEntity: BookingItem
+      joinTable:
+        name: veritasclient_course_bookingitem
+        inverseJoinColumns:
+          - { name: bi_code, referencedColumnName: code }
+        joinColumns:
+          - { name: id, referencedColumnName: id }

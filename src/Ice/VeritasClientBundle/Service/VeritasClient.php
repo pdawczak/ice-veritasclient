@@ -2,14 +2,14 @@
 
 namespace Ice\VeritasClientBundle\Service;
 
-use Guzzle\Service\Client;
+use Guzzle\Service\ClientInterface;
 use Ice\VeritasClientBundle\Entity\Course;
 use JMS\Serializer\Serializer;
 
 class VeritasClient
 {
     /**
-     * @var Client
+     * @var ClientInterface
      */
     private $client;
 
@@ -19,12 +19,12 @@ class VeritasClient
     private $serializer;
 
     /**
-     * @param Client     $client
+     * @param ClientInterface     $client
      * @param Serializer $serializer
      *
      * @return \Ice\VeritasClientBundle\Service\VeritasClient
      */
-    public function __construct(Client $client, Serializer $serializer)
+    public function __construct(ClientInterface $client, Serializer $serializer)
     {
         $this->client = $client;
         $this->serializer = $serializer;

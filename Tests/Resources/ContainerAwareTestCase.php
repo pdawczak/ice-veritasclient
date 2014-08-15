@@ -1,6 +1,6 @@
 <?php
 
-namespace Ice\VeritasClientBundle\Tests\Resources;
+namespace tests\Resources;
 
 require_once __DIR__ . '/app/AppKernel.php';
 

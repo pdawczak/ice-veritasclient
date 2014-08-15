@@ -1,6 +1,6 @@
 <?php
 
-namespace Ice\VeritasClientBundle\Tests\CommandHandler;
+namespace tests\CommandHandler;
 
 interface ApplicationScenarioInterface
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Ice\VeritasClientBundle\Tests\CommandHandler\Scenarios;
+namespace tests\CommandHandler\Scenarios;
 
 use Guzzle\Tests\GuzzleTestCase;
-use Ice\VeritasClientBundle\Tests\CommandHandler\ApplicationScenarioInterface;
+use tests\CommandHandler\ApplicationScenarioInterface;
 
 class Scenario2 extends GuzzleTestCase implements ApplicationScenarioInterface
 {

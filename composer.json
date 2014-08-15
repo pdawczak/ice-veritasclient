@@ -35,9 +35,9 @@
     },
     "autoload": {
         "psr-0": {
-            "Ice\\VeritasClientBundle": "",
-            "Ice\\VeritasClientTestBundle": "Tests/Resources/src"
+            "Ice\\VeritasClientTestBundle": "tests/Resources/src",
+            "tests": "",
+            "": "src"
         }
-    },
-    "target-dir": "Ice/VeritasClientBundle"
+    }
 }

@@ -1,9 +1,9 @@
 <?php
 
-namespace Ice\VeritasClientBundle\Tests\Functional;
+namespace tests\Functional;
 
-use Ice\VeritasClientBundle\Tests\CommandHandler\Scenarios\Scenario1;
-use Ice\VeritasClientBundle\Tests\Resources\ContainerAwareTestCase;
+use tests\CommandHandler\Scenarios\Scenario1;
+use tests\Resources\ContainerAwareTestCase;
 use Ice\VeritasClientBundle\CommandHandler\ApplicationCommandHandlerInterface;
 
 class NewApplicationTest extends ContainerAwareTestCase

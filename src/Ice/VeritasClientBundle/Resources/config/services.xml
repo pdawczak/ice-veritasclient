@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="veritas_rest_client.service_description"
+                 class="%guzzle.service_description.class%"
+                 factory-class="%guzzle.service_description.class%"
+                 factory-method="factory">
+            <argument>%ice_veritas_client.service_description_path%</argument>
+        </service>
+
+        <service
+                id="veritas_client.guzzle"
+                class="%guzzle.client.class%"
+                public="false">
+            <tag name="guzzle.client"/>
+            <argument>%ice_veritas_client.base_url%</argument>
+            <call method="setDescription">
+                <argument type="service" id="veritas_client.service_description"/>
+            </call>
+            <call method="setConfig">
+                <argument type="collection">
+                    <argument key="curl.options" type="collection">
+                        <argument key="CURLOPT_USERPWD">%ice_veritas_client.userpwd%</argument>
+                    </argument>
+                </argument>
+            </call>
+        </service>
+
+        <service
+                id="veritas_client.service_description"
+                class="%guzzle.service_description.class%"
+                factory-class="%guzzle.service_description.class%"
+                factory-method="factory"
+                public="false"
+                >
+            <argument>%ice_veritas_client.service_description_path%</argument>
+        </service>
+
+        <service
+                id="veritas_client.command_handler.application"
+                class="Ice\VeritasClientBundle\CommandHandler\GuzzleApplicationCommandHandler"
+                public="true"
+                >
+            <argument type="service" id="veritas_client.guzzle" />
+            <argument type="service" id="veritas_client.command_to_application_params_adapter" />
+        </service>
+
+        <service
+                id="veritas_client.command_to_application_params_adapter"
+                class="Ice\VeritasClientBundle\CommandHandler\CommandToApplicationArrayAdapter"
+                public="false"
+                />
+
+        <service
+                id="veritas.client"
+                class="Ice\VeritasClientBundle\Service\VeritasClient">
+            <argument type="service" id="veritas_client.guzzle" />
+            <argument type="service" id="serializer"/>
+        </service>
+    </services>
+</container>

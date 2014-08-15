@@ -1,6 +1,6 @@
 <?php
 
-namespace Ice\VeritasClientBundle\Tests\CommandHandler;
+namespace tests\CommandHandler;
 
 use Guzzle\Http\Message\EntityEnclosingRequest;
 use Guzzle\Http\Message\Response;
@@ -8,9 +8,9 @@ use Guzzle\Service\Description\ServiceDescriptionLoader;
 use Guzzle\Tests\GuzzleTestCase;
 use Ice\VeritasClientBundle\CommandHandler\CommandToApplicationArrayAdapter;
 use Ice\VeritasClientBundle\CommandHandler\GuzzleApplicationCommandHandler;
-use Ice\VeritasClientBundle\Tests\CommandHandler\Scenarios\Scenario1;
-use Ice\VeritasClientBundle\Tests\CommandHandler\Scenarios\Scenario2;
-use Ice\VeritasClientBundle\Tests\CommandHandler\Scenarios\Scenario3;
+use tests\CommandHandler\Scenarios\Scenario1;
+use tests\CommandHandler\Scenarios\Scenario2;
+use tests\CommandHandler\Scenarios\Scenario3;
 
 class GuzzleApplicationCommandHandlerTest extends GuzzleTestCase
 {

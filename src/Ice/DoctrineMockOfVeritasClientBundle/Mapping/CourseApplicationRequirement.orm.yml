@@ -1,0 +1,13 @@
+Ice\VeritasClientBundle\Entity\CourseApplicationRequirement:
+  type: entity
+  table: veritasclient_courseapplicationrequirement
+  id:
+    reference:
+      type: string
+    version:
+      type: string
+  fields:
+    description:
+      type: string
+    order:
+      type: integer

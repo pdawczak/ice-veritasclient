@@ -1,0 +1,18 @@
+parameters:
+    janus_api_base_url:     https://janus.dev.ice.internal.admin.cam.ac.uk/app_dev.php/api
+    janus_api_username:     janus
+    janus_api_password:     'AmjtP*GHfBKqG5bv^#uCTkaHp7WPEC'
+
+    mercury_api_base_url:   https://mercury.dev.ice.internal.admin.cam.ac.uk/app_dev.php/api
+    mercury_api_username:   mercury
+    mercury_api_password:   'fhG2CN@x&mMr!x9RQ2guFUtYkqE$@G'
+    mercury_gateway_secret: K7Se4reKetr3
+    mercury_gateway_account: test_uniofcam45561
+
+    minerva_api_base_url:   https://minerva.dev.ice.internal.admin.cam.ac.uk/app_dev.php
+    minerva_api_username:   minerva
+    minerva_api_password:   "ejQ9bzm@V7NDuR9$8c3s@h6@exfBmT"
+
+    veritas_api_base_url:   https://veritas.dev.ice.internal.admin.cam.ac.uk/app_dev.php/api
+    veritas_api_username:   veritas
+    veritas_api_password:   "jYH4YdU!fm2j6Ym4Eu54CY^VVbqcdsadsaKX"

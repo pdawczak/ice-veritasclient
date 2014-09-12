@@ -1,0 +1,15 @@
+Ice\VeritasClientBundle\Entity\PaymentPlan:
+  type: entity
+  table: veritasclient_paymentplan
+  id:
+    code:
+      type: string
+    version:
+      type: string
+  fields:
+    frontend:
+      type: boolean
+      nullable: true
+    backend:
+      type: boolean
+      nullable: true

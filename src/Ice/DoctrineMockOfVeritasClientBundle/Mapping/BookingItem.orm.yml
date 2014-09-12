@@ -1,0 +1,27 @@
+Ice\VeritasClientBundle\Entity\BookingItem:
+  type: entity
+  table: veritasclient_bookingitem
+  id:
+    code:
+      type: string
+  fields:
+    title:
+      type: string
+    capacity:
+      type: integer
+    price:
+      type: integer
+    vatRate:
+      type: string
+    financeCode:
+      type: string
+    category:
+      type: integer
+    required:
+      type: boolean
+    availableInFrontend:
+      type: boolean
+    availableInBackend:
+      type: boolean
+    numberAllocated:
+      type: integer

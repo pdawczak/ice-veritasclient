@@ -1,0 +1,8 @@
+/.idea/
+/vendor/
+/bin/
+/tests/Resources/web/bundles/
+/tests/Resources/app/bootstrap*
+/tests/Resources/app/cache/*
+/tests/Resources/app/logs/*
+/tests/Resources/app/config/parameters.yml

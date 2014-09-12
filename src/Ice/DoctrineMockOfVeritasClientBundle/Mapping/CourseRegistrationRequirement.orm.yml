@@ -1,0 +1,8 @@
+Ice\VeritasClientBundle\Entity\CourseRegistrationRequirement:
+  type: entity
+  table: veritasclient_courseregistrationrequirement
+  id:
+    code:
+      type: string
+    version:
+      type: integer

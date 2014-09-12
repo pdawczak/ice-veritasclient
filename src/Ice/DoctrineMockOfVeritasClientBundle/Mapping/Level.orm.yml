@@ -1,0 +1,9 @@
+Ice\VeritasClientBundle\Entity\Level:
+  type: entity
+  table: veritasclient_level
+  id:
+    id:
+      type: integer
+  fields:
+    description:
+      type: string

@@ -56,11 +56,12 @@ abstract class AbstractGuzzleClient implements ClientInterface
      * Create an OPTIONS request for the client
      *
      * @param string|array $uri Resource URI
+     * @param array $options
      *
      * @return RequestInterface
      * @see    Guzzle\Http\ClientInterface::createRequest()
      */
-    public function options($uri = null)
+    public function options($uri = null, array $options = array())
     {
         throw new MethodNotImplementedException();
     }
@@ -218,16 +219,15 @@ abstract class AbstractGuzzleClient implements ClientInterface
      * the client. The URI can contain the query string as well.  Use an array to provide a URI template and additional
      * variables to use in the URI template expansion.
      *
-     * @param string $method  HTTP method.  Defaults to GET
-     * @param string|array $uri     Resource URI.
+     * @param string $method HTTP method.  Defaults to GET
+     * @param string|array $uri Resource URI.
      * @param array|Collection $headers HTTP headers
-     * @param string|resource|array|EntityBodyInterface $body    Entity body of request (POST/PUT) or response (GET)
+     * @param string|resource|array|EntityBodyInterface $body Entity body of request (POST/PUT) or response (GET)
+     * @param array $options
      *
      * @return RequestInterface
-     * @throws InvalidArgumentException if a URI array is passed that does not contain exactly two elements: the URI
-     *                                  followed by template variables
      */
-    public function createRequest($method = RequestInterface::GET, $uri = null, $headers = null, $body = null)
+    public function createRequest($method = RequestInterface::GET, $uri = null, $headers = null, $body = null, array $options = array())
     {
         throw new MethodNotImplementedException();
     }
@@ -263,13 +263,14 @@ abstract class AbstractGuzzleClient implements ClientInterface
     /**
      * Create a HEAD request for the client
      *
-     * @param string|array $uri     Resource URI
+     * @param string|array $uri Resource URI
      * @param array|Collection $headers HTTP headers
+     * @param array $options
      *
      * @return RequestInterface
      * @see    Guzzle\Http\ClientInterface::createRequest()
      */
-    public function head($uri = null, $headers = null)
+    public function head($uri = null, $headers = null, array $options = array())
     {
         throw new MethodNotImplementedException();
     }
@@ -277,14 +278,15 @@ abstract class AbstractGuzzleClient implements ClientInterface
     /**
      * Create a DELETE request for the client
      *
-     * @param string|array $uri     Resource URI
+     * @param string|array $uri Resource URI
      * @param array|Collection $headers HTTP headers
-     * @param string|resource|EntityBodyInterface $body    Body to send in the request
+     * @param string|resource|EntityBodyInterface $body Body to send in the request
+     * @param array $options
      *
      * @return EntityEnclosingRequestInterface
      * @see    Guzzle\Http\ClientInterface::createRequest()
      */
-    public function delete($uri = null, $headers = null, $body = null)
+    public function delete($uri = null, $headers = null, $body = null, array $options = array())
     {
         throw new MethodNotImplementedException();
     }
@@ -292,14 +294,15 @@ abstract class AbstractGuzzleClient implements ClientInterface
     /**
      * Create a PUT request for the client
      *
-     * @param string|array $uri     Resource URI
+     * @param string|array $uri Resource URI
      * @param array|Collection $headers HTTP headers
-     * @param string|resource|EntityBodyInterface $body    Body to send in the request
+     * @param string|resource|EntityBodyInterface $body Body to send in the request
+     * @param array $options
      *
      * @return EntityEnclosingRequestInterface
      * @see    Guzzle\Http\ClientInterface::createRequest()
      */
-    public function put($uri = null, $headers = null, $body = null)
+    public function put($uri = null, $headers = null, $body = null, array $options = array())
     {
         throw new MethodNotImplementedException();
     }
@@ -307,16 +310,18 @@ abstract class AbstractGuzzleClient implements ClientInterface
     /**
      * Create a POST request for the client
      *
-     * @param string|array $uri      Resource URI
-     * @param array|Collection $headers  HTTP headers
+     * @param string|array $uri Resource URI
+     * @param array|Collection $headers HTTP headers
      * @param array|Collection|string|EntityBodyInterface $postBody POST body. Can be a string, EntityBody, or
      *                                                    associative array of POST fields to send in the body of the
      *                                                    request.  Prefix a value in the array with the @ symbol to
      *                                                    reference a file.
+     * @param array $options
+     *
      * @return EntityEnclosingRequestInterface
      * @see    Guzzle\Http\ClientInterface::createRequest()
      */
-    public function post($uri = null, $headers = null, $postBody = null)
+    public function post($uri = null, $headers = null, $postBody = null, array $options = array())
     {
         throw new MethodNotImplementedException();
     }
@@ -410,12 +415,13 @@ abstract class AbstractGuzzleClient implements ClientInterface
      *
      * @param string|array $uri     Resource URI
      * @param array|Collection $headers HTTP headers
-     * @param string|resource|EntityBodyInterface $body    Body to send in the request
+     * @param string|resource|EntityBodyInterface $body Body to send in the request
+     * @param array $options
      *
      * @return EntityEnclosingRequestInterface
      * @see    Guzzle\Http\ClientInterface::createRequest()
      */
-    public function patch($uri = null, $headers = null, $body = null)
+    public function patch($uri = null, $headers = null, $body = null, array $options = array())
     {
         throw new MethodNotImplementedException();
     }
